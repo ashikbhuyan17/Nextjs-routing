@@ -4,7 +4,7 @@ function ReviewDetail() {
     const { reviewId, postId } = router.query
     return (
         <>
-            <h1>reviewId page {reviewId} {postId}</h1>
+            <h1>reviewId page: {reviewId} post id :{postId}</h1>
         </>
     )
 }
