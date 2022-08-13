@@ -1,8 +1,11 @@
-
+import Link from "next/link";
 const Home = () => {
     return (
         <div>
-            <h1>this is home page</h1>
+            <h1>Next js pre-rendering</h1>
+            <Link href='/posts'>
+                <a>posts</a>
+            </Link>
         </div>
     );
 };
