@@ -1,6 +1,6 @@
 import React from 'react';
 
-const postId = ({ post }) => {
+const category = ({ post }) => {
     return (
         <>
             <h2>{post.id} {post.title}</h2>
@@ -9,7 +9,7 @@ const postId = ({ post }) => {
     );
 };
 
-export default postId;
+export default category;
 
 // export async function getStaticPaths() {
 //     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -30,8 +30,14 @@ export default postId;
 
 
 export async function getServerSideProps(context) {
-    const { params } = context
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+    // console.log('............', context);
+    const { params, req, res, query } = context
+    // console.log(params.category)
+    const { category } = params
+    console.log(req.headers.cookie)
+    console.log("query", query);
+    res.setHeader('Set-Cookie', ['name=ashik'])
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.category}`)
     const data = await response.json()
     // console.log(data);
     return {
